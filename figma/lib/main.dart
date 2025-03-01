@@ -59,7 +59,7 @@ class HomeScreen extends StatelessWidget {
             SizedBox(height: 10),
             buildSpecialCard("Morning Gratitude", "5 min", "Good Morning", Colors.green[100]!, Colors.blue),
             SizedBox(height: 10),
-            buildSpecialCard("Serenity Before Sleep", "7 min", "Evening", Colors.grey[200]!, Colors.grey),
+            buildSpecialCard("Serenity Before Sleep", "7 min", "Good Evening", Colors.grey[200]!, Colors.grey),
           ],
         ),
       ),
