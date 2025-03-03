@@ -127,9 +127,8 @@ class HomeScreen extends StatelessWidget {
               SizedBox(height: 10),
               Row(
                 children: [
-                  Chip(label: Text(duration)),
-                  SizedBox(width: 8),
-                  Chip(label: Text(tag, style: TextStyle(color: textColor))),
+                  Padding(padding: EdgeInsets.symmetric(horizontal: 4), child: Chip(label: Text(duration))),
+                  Padding(padding: EdgeInsets.symmetric(horizontal: 4), child: Chip(label: Text(tag, style: TextStyle(color: textColor)))),
                 ],
               ),
             ],
