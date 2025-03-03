@@ -146,7 +146,8 @@ class ProfileScreen extends StatelessWidget{
         appBar: AppBar(
         title: Text("Profile"),
     backgroundColor: Colors.blue,
-
+    ),
+    body: Center(
 }
 
 class LucideIcons {
