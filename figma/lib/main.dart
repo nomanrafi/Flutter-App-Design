@@ -75,7 +75,7 @@ class HomeScreen extends StatelessWidget {
         items: [
           BottomNavigationBarItem(icon: Icon(Icons.home), label: "Home"),
           BottomNavigationBarItem(icon: Icon(Icons.play_arrow), label: "Play"),
-          BottomNavigationBarItem(icon: Icon(LucideIcons.library), label: "Library"),
+          BottomNavigationBarItem(icon: Icon(Icons.library_books), label: "Library"),
           BottomNavigationBarItem(icon: Icon(Icons.person), label: "Profile"),
         ],
         selectedItemColor: Colors.blue,
