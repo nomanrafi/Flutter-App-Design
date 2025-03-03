@@ -63,29 +63,28 @@ class HomeScreen extends StatelessWidget {
           ],
         ),
       ),
-      bottomNavigationBar: BottomNavigationBar(
-        type: BottomNavigationBarType.fixed,
-        onTap: (index) {
-          if (index == 3) {
-            Navigator.push(
-              context,
-              MaterialPageRoute(builder: (context) => ProfileScreen()),
-            );
-          }
-        },
-        items: [
-          BottomNavigationBarItem(icon: Icon(Icons.home), label: "Home"),
-          BottomNavigationBarItem(icon: Icon(Icons.play_arrow), label: "Play"),
-          BottomNavigationBarItem(icon: Icon(Icons.library_books), label: "Library"),
-          BottomNavigationBarItem(icon: Icon(Icons.person), label: "Profile"),
-        ],
-        selectedItemColor: Colors.blue,
-        unselectedItemColor: Colors.black,
-      ),
-    );
-  }
+        bottomNavigationBar: BottomNavigationBar(
+          currentIndex: _selectedIndex,
+          onTap: (index) {
+            if (index == 3) {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => ProfilePage()), // ← Added navigation to ProfilePage
+              );
+            }
+          },
+          items: [
+            BottomNavigationBarItem(icon: Icon(Icons.home), label: "Home"),
+            BottomNavigationBarItem(icon: Icon(Icons.play_arrow), label: "Play"),
+            BottomNavigationBarItem(icon: Icon(LucideIcons.library), label: "Library"),
+            BottomNavigationBarItem(icon: Icon(Icons.person), label: "Profile"),
+          ],
+          selectedItemColor: Colors.blue,
+          unselectedItemColor: Colors.black,
+        ),
 
-  Widget buildCategoryCard(String title, String duration, Color bgColor, Color textColor) {
+
+        Widget buildCategoryCard(String title, String duration, Color bgColor, Color textColor) {
     return Container(
       width: 160,
       padding: EdgeInsets.all(16),
