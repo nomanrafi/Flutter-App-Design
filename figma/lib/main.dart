@@ -138,20 +138,50 @@ class HomeScreen extends StatelessWidget {
     );
   }
 }
-class ProfileScreen extends StatelessWidget{
+  class ProfilePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-        appBar: AppBar(
-        title: Text("Profile"),
-    backgroundColor: Colors.blue,
-    ),
-    body: Center(
-    child: Text("Profile Page", style: TextStyle(fontSize: 24)),
-    ),
-    );
+  return Scaffold(
+  appBar: AppBar(
+  title: Text("Profile"),
+  backgroundColor: Colors.white,
+  elevation: 0,
+  leading: IconButton(
+  icon: Icon(Icons.arrow_back, color: Colors.black),
+  onPressed: () {
+  Navigator.pop(context); // ← Added back navigation
+  },
+  ),
+  ),
+  body: Padding(
+  padding: EdgeInsets.all(16.0),
+  child: Column(
+  crossAxisAlignment: CrossAxisAlignment.center,
+  children: [
+  CircleAvatar(
+  radius: 50,
+  backgroundImage: NetworkImage("https://avatars.githubusercontent.com/u/100467115?v=4"), // ← Profile Picture
+  ),
+  SizedBox(height: 16),
+  Text("Noman", style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold)),
+  Text("noman@example.com", style: TextStyle(fontSize: 16, color: Colors.grey)),
+  SizedBox(height: 20),
+  ElevatedButton(
+  onPressed: () {},
+  child: Text("Edit Profile"),
+  ),
+  SizedBox(height: 10),
+  ElevatedButton(
+  onPressed: () {},
+  child: Text("Settings"),
+  ),
+  ],
+  ),
+  ),
+  );
   }
-}
+  }
+
 class LucideIcons {
   static IconData? library;
 }
