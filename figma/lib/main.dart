@@ -139,6 +139,7 @@ class HomeScreen extends StatelessWidget {
     );
   }
 }
+class ProfileScreen extends StatelessWidget
 
 class LucideIcons {
   static IconData? library;
