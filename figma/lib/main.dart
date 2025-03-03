@@ -63,28 +63,28 @@ class HomeScreen extends StatelessWidget {
           ],
         ),
       ),
-        bottomNavigationBar: BottomNavigationBar(
-          currentIndex: _selectedIndex,
-          onTap: (index) {
-            if (index == 3) {
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => ProfilePage()), // ← Added navigation to ProfilePage
-              );
-            }
-          },
-          items: [
-            BottomNavigationBarItem(icon: Icon(Icons.home), label: "Home"),
-            BottomNavigationBarItem(icon: Icon(Icons.play_arrow), label: "Play"),
-            BottomNavigationBarItem(icon: Icon(LucideIcons.library), label: "Library"),
-            BottomNavigationBarItem(icon: Icon(Icons.person), label: "Profile"),
-          ],
-          selectedItemColor: Colors.blue,
-          unselectedItemColor: Colors.black,
-        ),
+      bottomNavigationBar: BottomNavigationBar(
+        items: [
+          BottomNavigationBarItem(icon: Icon(Icons.home), label: "Home"),
+          BottomNavigationBarItem(icon: Icon(Icons.play_arrow), label: "Play"),
+          BottomNavigationBarItem(icon: Icon(Icons.library_books), label: "Library"),
+          BottomNavigationBarItem(icon: Icon(Icons.person), label: "Profile"),
+        ],
+        selectedItemColor: Colors.blue,
+        unselectedItemColor: Colors.black,
+        onTap: (index) {
+          if (index == 3) {
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => ProfilePage()),
+            );
+          }
+        },
+      ),
+    );
+  }
 
-
-        Widget buildCategoryCard(String title, String duration, Color bgColor, Color textColor) {
+  Widget buildCategoryCard(String title, String duration, Color bgColor, Color textColor) {
     return Container(
       width: 160,
       padding: EdgeInsets.all(16),
@@ -126,8 +126,9 @@ class HomeScreen extends StatelessWidget {
               SizedBox(height: 10),
               Row(
                 children: [
-                  Padding(padding: EdgeInsets.symmetric(horizontal: 4), child: Chip(label: Text(duration))),
-                  Padding(padding: EdgeInsets.symmetric(horizontal: 4), child: Chip(label: Text(tag, style: TextStyle(color: textColor)))),
+                  Chip(label: Text(duration)),
+                  SizedBox(width: 8),
+                  Chip(label: Text(tag, style: TextStyle(color: textColor))),
                 ],
               ),
             ],
@@ -138,49 +139,34 @@ class HomeScreen extends StatelessWidget {
     );
   }
 }
-  class ProfilePage extends StatelessWidget {
+
+class ProfilePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-  return Scaffold(
-  appBar: AppBar(
-  title: Text("Profile"),
-  backgroundColor: Colors.white,
-  elevation: 0,
-  leading: IconButton(
-  icon: Icon(Icons.arrow_back, color: Colors.black),
-  onPressed: () {
-  Navigator.pop(context); // ← Added back navigation
-  },
-  ),
-  ),
-  body: Padding(
-  padding: EdgeInsets.all(16.0),
-  child: Column(
-  crossAxisAlignment: CrossAxisAlignment.center,
-  children: [
-  CircleAvatar(
-  radius: 50,
-  backgroundImage: NetworkImage("https://avatars.githubusercontent.com/u/100467115?v=4"), // ← Profile Picture
-  ),
-  SizedBox(height: 16),
-  Text("Noman", style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold)),
-  Text("noman@example.com", style: TextStyle(fontSize: 16, color: Colors.grey)),
-  SizedBox(height: 20),
-  ElevatedButton(
-  onPressed: () {},
-  child: Text("Edit Profile"),
-  ),
-  SizedBox(height: 10),
-  ElevatedButton(
-  onPressed: () {},
-  child: Text("Settings"),
-  ),
-  ],
-  ),
-  ),
-  );
+    return Scaffold(
+      appBar: AppBar(
+        title: Text("Profile"),
+        backgroundColor: Colors.blue,
+      ),
+      body: Padding(
+        padding: const EdgeInsets.all(16.0),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            CircleAvatar(radius: 50, backgroundColor: Colors.blue),
+            SizedBox(height: 20),
+            Text("Name: Noman", style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
+            SizedBox(height: 10),
+            Text("Email: noman@example.com", style: TextStyle(fontSize: 16)),
+            SizedBox(height: 20),
+            ElevatedButton(onPressed: () {}, child: Text("Edit Profile")),
+            ElevatedButton(onPressed: () {}, child: Text("Settings")),
+          ],
+        ),
+      ),
+    );
   }
-  }
+}
 
 class LucideIcons {
   static IconData? library;
