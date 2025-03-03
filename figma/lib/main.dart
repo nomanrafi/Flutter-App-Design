@@ -148,6 +148,8 @@ class ProfileScreen extends StatelessWidget{
     backgroundColor: Colors.blue,
     ),
     body: Center(
+    child: Text("Profile Page", style: TextStyle(fontSize: 24)),
+    ),
 }
 
 class LucideIcons {
