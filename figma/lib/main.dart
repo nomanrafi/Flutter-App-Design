@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:webview_flutter/webview_flutter.dart';
 
 void main() {
   runApp(const MyApp());
@@ -64,6 +65,8 @@ class HomeScreen extends StatelessWidget {
         ),
       ),
       bottomNavigationBar: BottomNavigationBar(
+
+        type: BottomNavigationBarType.fixed,
         items: [
           BottomNavigationBarItem(icon: Icon(Icons.home), label: "Home"),
           BottomNavigationBarItem(icon: Icon(Icons.play_arrow), label: "Play"),
@@ -73,6 +76,17 @@ class HomeScreen extends StatelessWidget {
         selectedItemColor: Colors.blue,
         unselectedItemColor: Colors.black,
         onTap: (index) {
+          if (index == 1) {  // Play Button Pressed
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => PlayPage()), // ← Navigates to PlayPage
+            );
+          } else if (index == 3) {  // Profile Button Pressed
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => ProfilePage()),
+            );
+          }
           if (index == 3) {
             Navigator.push(
               context,
@@ -138,6 +152,36 @@ class HomeScreen extends StatelessWidget {
       ),
     );
   }
+}
+
+class PlayPage extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text("Play Video"),
+        backgroundColor: Colors.white,
+        elevation: 0,
+        leading: IconButton(
+          icon: Icon(Icons.arrow_back, color: Colors.black),
+          onPressed: () {
+            Navigator.pop(context);
+          },
+        ),
+      ),
+      body: WebView(
+        initialUrl: "https://www.youtube.com/embed/hDMDFKS0HeY?si=OXiQ4Z9MmCXi2mec", // Embedded YouTube link
+        javascriptMode: JavascriptMode.unrestricted, // Allows JavaScript
+      ),
+    );
+  }
+}
+
+class JavascriptMode {
+  static var unrestricted;
+}
+
+WebView({required String initialUrl, required javascriptMode}) {
 }
 
 class ProfilePage extends StatelessWidget {
