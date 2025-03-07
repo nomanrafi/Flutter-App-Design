@@ -212,6 +212,9 @@ class ProfilePage extends StatelessWidget {
   }
 }
 
+class BuildContext {
+}
+
 class SizedBox {
 }
 
