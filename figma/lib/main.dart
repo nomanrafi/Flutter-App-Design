@@ -212,6 +212,9 @@ class ProfilePage extends StatelessWidget {
   }
 }
 
+class Colors {
+}
+
 class Column {
 }
 
