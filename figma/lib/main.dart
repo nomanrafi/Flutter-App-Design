@@ -212,6 +212,9 @@ class ProfilePage extends StatelessWidget {
   }
 }
 
+class Column {
+}
+
 class StatelessWidget {
 }
 
