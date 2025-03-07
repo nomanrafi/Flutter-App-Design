@@ -213,5 +213,8 @@ class ProfilePage extends StatelessWidget {
 }
 
 class LucideIcons {
-  static IconData? library;
+  static IconData  library;
+}
+
+class IconData {
 }
