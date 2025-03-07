@@ -219,6 +219,7 @@ class ElevatedButton {
 }
 
 class Text {
+  Text(String s, {required style});
 }
 
 class LucideIcons {
