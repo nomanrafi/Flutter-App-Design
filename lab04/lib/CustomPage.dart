@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'thirdpage.dart';
 
 class CustomPage extends StatefulWidget {
   const CustomPage({Key? key}) : super(key: key);
@@ -45,6 +47,7 @@ class _CustomPageState extends State<CustomPage> {
     );
   }
 
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -86,16 +89,16 @@ class _CustomPageState extends State<CustomPage> {
               ],
             ),
           ),
-          SizedBox(height: 20),
-          SwitchListTile(
-            title: Text("Dark Mode"),
-            value: isDark,
-            onChanged: (val) {
-              setState(() {
-                isDark = val;
-              });
-            },
-          ),
+          // SizedBox(height: 20),
+          // SwitchListTile(
+          //   title: Text("Dark Mode"),
+          //   value: isDark,
+          //   onChanged: (val) {
+          //     setState(() {
+          //       isDark = val;
+          //     });
+          //   },
+          // ),
           Divider(),
           Text("Choose Your Favorite Color:"),
           RadioListTile(
@@ -152,6 +155,23 @@ class _CustomPageState extends State<CustomPage> {
               subtitle: Text("1.0.0 • Created by Noman"),
             ),
           ),
+          Divider(),
+          ElevatedButton.icon(
+            icon: Icon(Icons.explore),
+            label: Text("Explore Interactive Showcase"),
+            style: ElevatedButton.styleFrom(
+              backgroundColor: Colors.deepPurple,
+              padding: EdgeInsets.symmetric(horizontal: 20, vertical: 12),
+            ),
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => const ThirdPage()),
+              );
+            },
+          ),
+          SizedBox(height: 20),
+
           Card(
             elevation: 3,
             child: ListTile(
@@ -167,6 +187,17 @@ class _CustomPageState extends State<CustomPage> {
               ),
             ),
           ),
+          ElevatedButton.icon(
+            icon: Icon(Icons.explore),
+            label: Text("Explore Interactive Showcase"),
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => const ThirdPage()),
+              );
+            },
+          ),
+          SizedBox(height: 20),
         ],
       ),
     );

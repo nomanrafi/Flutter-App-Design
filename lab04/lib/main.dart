@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'CustomPage.dart';
-
+import 'CustomPage.dart';  // Assuming CustomPage is another widget you created.
 void main() {
   runApp(MyApp());
 }
