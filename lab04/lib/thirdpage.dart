@@ -23,6 +23,9 @@ class _ThirdPageState extends State<ThirdPage> with SingleTickerProviderStateMix
   late AnimationController _controller;
   late Animation<double> _animation;
 
+  // Added a slider value to manage the rating
+  double rating = 4.0;
+
   @override
   void initState() {
     super.initState();
@@ -69,6 +72,12 @@ class _ThirdPageState extends State<ThirdPage> with SingleTickerProviderStateMix
       home: Scaffold(
         appBar: AppBar(
           title: const Text("🚀 Interactive Showcase"),
+          leading: IconButton(
+            icon: Icon(Icons.arrow_back),
+            onPressed: () {
+              Navigator.pop(context);  // This will navigate back to the previous screen
+            },
+          ),
           actions: [
             Switch(
               value: isDark,
@@ -97,8 +106,8 @@ class _ThirdPageState extends State<ThirdPage> with SingleTickerProviderStateMix
                       scale: _animation,
                       child: ElevatedButton.icon(
                         onPressed: _changeQuote,
-                        icon: const Icon(Icons.bolt),
-                        label: const Text("Inspire Me!"),
+                        icon: const Icon(Icons.bolt, color: Colors.yellow,),
+                        label: const Text("Inspire Me!",style: TextStyle(color: Colors.black),),
                         style: ElevatedButton.styleFrom(
                           backgroundColor: Colors.deepPurple,
                           padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 12),
@@ -112,6 +121,7 @@ class _ThirdPageState extends State<ThirdPage> with SingleTickerProviderStateMix
                       style: const TextStyle(fontSize: 20, fontStyle: FontStyle.italic),
                     ),
                     const SizedBox(height: 30),
+                    // Updated Slider to make it functional
                     Card(
                       elevation: 4,
                       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
@@ -119,12 +129,16 @@ class _ThirdPageState extends State<ThirdPage> with SingleTickerProviderStateMix
                         leading: const Icon(Icons.star_rate, color: Colors.amber),
                         title: const Text("Interactive Rating"),
                         subtitle: Slider(
-                          value: 4.0,
+                          value: rating,
                           min: 0,
                           max: 5,
                           divisions: 10,
-                          label: "4.0",
-                          onChanged: (_) {},
+                          label: rating.toStringAsFixed(1),
+                          onChanged: (newRating) {
+                            setState(() {
+                              rating = newRating;
+                            });
+                          },
                         ),
                       ),
                     ),

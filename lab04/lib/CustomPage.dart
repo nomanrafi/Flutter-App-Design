@@ -76,7 +76,7 @@ class _CustomPageState extends State<CustomPage> {
                   child: CircleAvatar(
                     radius: 50,
                     backgroundImage: NetworkImage(
-                      'https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg',
+                      'https://raw.githubusercontent.com/nomanrafi/Flutter-App-Design/refs/heads/main/Testproject/Professional%20Profile%20Photo%20Instagram%20Post%20(3).png',
                     ),
                   ),
                 ),
@@ -187,17 +187,7 @@ class _CustomPageState extends State<CustomPage> {
               ),
             ),
           ),
-          ElevatedButton.icon(
-            icon: Icon(Icons.explore),
-            label: Text("Explore Interactive Showcase"),
-            onPressed: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => const ThirdPage()),
-              );
-            },
-          ),
-          SizedBox(height: 20),
+
         ],
       ),
     );
